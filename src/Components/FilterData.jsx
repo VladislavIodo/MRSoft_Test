@@ -1,40 +1,35 @@
+import style from "./FilterData.module.css"
+
 export const FilterData = () => {
     return (
-        <div className="container">
-            <h1 className="center-align">Тестовое задание</h1>
-            <div className="row">
-                <div className="col s12">
+        <div className={style.container}>
+            <h1>Тестовое задание</h1>
+            <div>
+                <div className={style.inpChe}>
                     <h4>Ввод данных</h4>
-                    <div className="row">
-                        <div className="input-field col s6">
-                            <input id="text-data" type="text" className="validate"
-                                // onChange={inputDataValue} value={inputData}
+                    <label>
+                        <input id="text-data" type="text" className={style.dataField}
+                               placeholder="Введите данные"
+                            // onChange={inputDataValue} value={inputData}
+                        />
+                        {/*<label className="active" htmlFor="text-data">Введите данные</label>*/}
+                            <input type="checkbox"
+                                // onChange={toggleCheckbox}
                             />
-                            <label className="active" htmlFor="text-data">Введите данные</label>
-                        </div>
-                        <div className="input-field col s6">
-                            <label>
-                                <input type="checkbox"
-                                    // onChange={toggleCheckbox}
-                                />
-                                <span>Регистр</span>
-                            </label>
-                        </div>
-                    </div>
+                            <span>Регистр</span>
+                    </label>
                 </div>
-                <div className="col s12">
+                <div className={style.sortData}>
                     <h4>Сортировка данных</h4>
                     <div className="row">
-                        <div className="col">
-                            <button className="waves-effect waves-light btn"
+                            <button className={style.btnSort}
                                 // onClick={toggleButtonWordLength}
-                            >По длине слова</button>
-                        </div>
-                        <div className="col">
-                            <button className="waves-effect waves-light btn"
+                            >По длине слова
+                            </button>
+                            <button className={style.btnSort}
                                 // onClick={toggleButtonSubstring}
-                            >По подстроке</button>
-                        </div>
+                            >По подстроке
+                            </button>
                     </div>
                 </div>
                 <div className="col s12">
