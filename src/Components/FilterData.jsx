@@ -39,6 +39,7 @@ export const FilterData = () => {
                 </div>
                 <div className="col s12">
                     <h4>Результат</h4>
+
                     {/*<div className="card grey lighten-2">*/}
                     {/*    <div className="card-content">*/}
                     {/*        {*/}
