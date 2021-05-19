@@ -1,7 +1,20 @@
 .container {
     font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
     padding-top: 3rem;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #dbdbdb;
+}
+.containerValue {
+    height: 160px;
+}
+/*.containerData {*/
+/*    background-color: #c4c4c4;*/
+/*}*/
+
+.h1 {
+    font-size: 4.2rem;
+    line-height: 110%;
+    margin: 2.8rem 0 1.68rem 0;
 }
 .inpChe {
     display: block;
@@ -10,23 +23,35 @@
 
 * {
     box-sizing: border-box;
-    margin: 0;
+    margin: 5px;
+}
+.input:focus {
+    outline: none;
+    border: #48908d solid 2px;
 }
 
-.dataField {
-    height: 30px;
-    width: 50%;
-    max-width: 400px;
-    margin: 2rem auto 1rem;
-    padding: 1.2rem;
-    display: block;
-    border: 1px solid #000000;
-    outline: none;
-    font-size: 1.2em;
+.input {
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+    box-sizing: border-box;
+    transition: 0.5s;
+    border-radius: 25px;
 }
+/*.dataField {*/
+/*    height: 30px;*/
+/*    width: 50%;*/
+/*    max-width: 400px;*/
+/*    margin: 2rem auto 1rem;*/
+/*    padding: 1.2rem;*/
+/*    display: block;*/
+/*    border: 1px solid #000000;*/
+/*    outline: none;*/
+/*    font-size: 1.2em;*/
+/*}*/
 
 .sortData {
-    margin-top: 40px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
 }
@@ -37,7 +62,7 @@
     padding: 10px;
     border-radius: 0.8rem;
     border: #05040a;
-    border-bottom: 3px solid #DF8E00;
+    border-bottom: 3px solid #48908d;
     color: #313131;
     outline: none;
 }
