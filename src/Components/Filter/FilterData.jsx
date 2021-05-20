@@ -1,8 +1,10 @@
 import style from "./FilterData.module.css"
 import {useEffect, useState} from "react";
+import React from "react"
 
-export const FilterData = () => {
+const FilterData = React.memo(() => {
     const [data, setData] = useState([]);
+    const [filteredData, setFilteredData] = useState([]);
     const [inputData, setInputData] = useState('');
     const [checkboxValue, setCheckboxValue] = useState('i');
 
@@ -28,14 +30,13 @@ export const FilterData = () => {
                 const regExpUpperCase = new RegExp(/([A-Z])\w+/g);
                 const resultUpperCase = result.filter(item => regExpUpperCase.test(item));
 
-                setData(resultUpperCase);
+                setFilteredData(resultUpperCase);
 
             } else if ((checkboxValue === 'i')) {
-                setData(result);
+                setFilteredData(result);
             }
         } else {
             if (!inputData.length || Number.isNaN(inputData)) {
-
                 alert('Введите число');
             }
         }
@@ -46,7 +47,7 @@ export const FilterData = () => {
             const regExp = new RegExp(inputData, `${checkboxValue}`);
             const searchResult = data.filter(word => regExp.test(word));
 
-            setData(searchResult);
+            setFilteredData(searchResult);
             alert('Данные приняты');
         } else {
             if (!isNaN(inputData)) {
@@ -71,7 +72,7 @@ export const FilterData = () => {
                 console.error("Error:", error);
             });
     }, [
-        // inputData, checkboxValue
+        inputData, checkboxValue
     ]);
 
 
@@ -80,8 +81,6 @@ export const FilterData = () => {
             <div className={style.container}>
                 <h1 className={style.h1}>Тестовое задание</h1>
                 <div className={style.containerValue}>
-
-
                     <div className={style.inpChe}>
                         <h4>Ввод данных</h4>
                         <label>
@@ -99,7 +98,6 @@ export const FilterData = () => {
                             </div>
                         </label>
                     </div>
-
 
                     <div className={style.sortData}>
                         <div>
@@ -119,16 +117,18 @@ export const FilterData = () => {
                     </div>
                 </div>
             </div>
-            <div >
+            {filteredData.length > 0 &&
+            <div>
                 <h4>Результат:</h4>
 
                 <div className={style.listData}>
-                    <ol >
+                    <ol>
                         {
-                            data.map((item) =>
+                            filteredData.map((item) =>
                                 <li key={item} className="flow-text">{item}</li>
                             )
                         }
+
                         {data.length === 0 &&
                         <div>
                             <p className="flow-text">Результат не найден :(</p>
@@ -137,9 +137,11 @@ export const FilterData = () => {
                         }
                     </ol>
                 </div>
-            </div>
+            </div>}
 
 
         </div>
     )
-}
+})
+
+export default FilterData;

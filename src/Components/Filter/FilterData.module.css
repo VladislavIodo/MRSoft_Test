@@ -21,11 +21,12 @@
 .inpChe {
     display: block;
     text-align: center;
+    height: 100px;
 }
 
 * {
     box-sizing: border-box;
-    /*margin: 5px;*/
+    margin: 5px;
 }
 .input:focus {
     outline: none;
