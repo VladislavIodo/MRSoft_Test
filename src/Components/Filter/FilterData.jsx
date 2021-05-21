@@ -13,7 +13,6 @@ const FilterData = React.memo(() => {
     const url = 'http://www.mrsoft.by/data.json';
     const corsUrl = 'https://cors-anywhere.herokuapp.com';
 
-
     const inputDataValue = (event) => {
         const inputValue = event.target.value;
 
@@ -48,7 +47,6 @@ const FilterData = React.memo(() => {
             const searchResult = data.filter(word => regExp.test(word));
 
             setFilteredData(searchResult);
-            alert('Данные приняты');
         } else {
             if (!isNaN(inputData)) {
                 alert('Введите буквы');
@@ -75,7 +73,6 @@ const FilterData = React.memo(() => {
         inputData, checkboxValue
     ]);
 
-
     return (
         <div>
             <div className={style.container}>
@@ -89,7 +86,6 @@ const FilterData = React.memo(() => {
                                    onChange={inputDataValue} value={inputData}
                             />
                             <span>{textInput}</span>
-                            {/*<label className="active" htmlFor="text-data">Введите данные</label>*/}
                             <div>
                                 <input type="checkbox"
                                        onChange={toggleCheckbox}
@@ -105,11 +101,11 @@ const FilterData = React.memo(() => {
                         </div>
                         <div>
                             <button
-                                className={style.btnSort}
+                                className={style.button}
                                 onClick={toggleButtonWordLength}
                             >По длине слов
                             </button>
-                            <button className={style.btnSort}
+                            <button className={style.button}
                                     onClick={toggleButtonSubstring}
                             >По подстроке
                             </button>
@@ -117,18 +113,17 @@ const FilterData = React.memo(() => {
                     </div>
                 </div>
             </div>
+
             {filteredData.length > 0 &&
             <div>
                 <h4>Результат:</h4>
 
                 <div className={style.listData}>
                     <ol>
-                        {
-                            filteredData.map((item) =>
-                                <li key={item} className="flow-text">{item}</li>
-                            )
+                        {filteredData.map((item) =>
+                            <li key={item} className="flow-text">{item}</li>
+                        )
                         }
-
                         {data.length === 0 &&
                         <div>
                             <p className="flow-text">Результат не найден :(</p>
@@ -138,7 +133,6 @@ const FilterData = React.memo(() => {
                     </ol>
                 </div>
             </div>}
-
 
         </div>
     )
