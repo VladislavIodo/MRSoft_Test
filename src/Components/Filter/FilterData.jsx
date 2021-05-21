@@ -124,12 +124,6 @@ const FilterData = React.memo(() => {
                             <li key={item} className="flow-text">{item}</li>
                         )
                         }
-                        {data.length === 0 &&
-                        <div>
-                            <p className="flow-text">Результат не найден :(</p>
-                            <p className="flow-text">Попробуйте еще раз!</p>
-                        </div>
-                        }
                     </ol>
                 </div>
             </div>}
